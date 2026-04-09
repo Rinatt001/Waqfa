@@ -10,7 +10,6 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  /* Colors */
   --teal: #059669;
   --teal-mid: #047857;
   --teal-light: #E8F5F0;
@@ -28,7 +27,6 @@
   --gray-300: #D1D5DB;
   --border: #E5E7EB;
   
-  /* Layout & System */
   --radius: 6px;
   --radius-lg: 12px;
   --radius-xl: 16px;
@@ -36,7 +34,6 @@
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
   --shadow: 0 4px 12px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.05);
 
-  /* Typography Scale */
   --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-display: 'Instrument Serif', Georgia, serif;
   
@@ -319,22 +316,6 @@ nav {
   line-height: 1.6;
 }
 
-/* ── HOW IT WORKS ── */
-.how-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 48px;
-}
-.how-step {
-  padding: 32px;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-}
-.step-num { font-size: var(--text-xs); font-weight: 700; color: var(--teal); margin-bottom: 16px; }
-.how-step h3 { font-size: var(--text-lg); margin-bottom: 12px; }
-.how-step p { font-size: var(--text-sm); color: var(--ink-muted); }
-
 /* ── INSTITUTION CARDS ── */
 .inst-grid {
   display: grid;
@@ -347,103 +328,14 @@ nav {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  min-height: 320px; /* Fixed height for alignment */
 }
-.inst-header { display: flex; gap: 12px; margin-bottom: 20px; }
-.inst-avatar { width: 44px; height: 44px; border-radius: 8px; background: var(--teal-light); display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--teal); }
+.inst-header { display: flex; gap: 12px; margin-bottom: 20px; align-items: flex-start; }
+.inst-avatar { width: 44px; height: 44px; border-radius: 8px; background: var(--teal-light); display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--teal); flex-shrink: 0; }
 .inst-name { font-size: var(--text-base); font-weight: 600; margin-bottom: 2px; }
 .inst-loc { font-size: var(--text-xs); color: var(--ink-faint); }
-.inst-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--gray-100); }
-.inst-stat .v { font-size: var(--text-base); font-weight: 600; }
-.inst-stat .l { font-size: var(--text-xs); color: var(--ink-faint); }
-
-/* ── SIDES ── */
-.sides-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 48px; }
-.side-panel { border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 40px; }
-.side-panel h3 { font-family: var(--font-display); font-size: 1.75rem; margin-bottom: 12px; }
-.side-item { display: flex; gap: 12px; font-size: var(--text-sm); margin-bottom: 12px; font-weight: 300; }
-.side-cta { display: block; margin-top: 32px; padding: 12px; text-align: center; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: var(--text-sm); }
-
-/* ── FOOTER ── */
-footer { background: var(--ink); color: white; padding: 80px 1.5rem 40px; }
-.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 64px; }
-.footer-logo { font-size: 1.25rem; font-weight: 600; margin-bottom: 16px; }
-.footer-col h4 { font-size: var(--text-xs); text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
-.footer-col ul { list-style: none; }
-.footer-col a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: var(--text-sm); display: block; margin-bottom: 12px; }
-
-@media (max-width: 768px) {
-  .hero-inner, .how-grid, .inst-grid, .sides-grid, .footer-top { grid-template-columns: 1fr; }
-  .hero { padding: 40px 1.5rem; }
-  .stats-bar-inner { flex-direction: column; gap: 24px; }
-}
-</style>
-</head>
-<body>
-
-<div class="top-banner">
-  Waqfa is currently in pre-seed stage. <a href="#">Join early access →</a>
-</div>
-
-<nav>
-  <div class="nav-inner">
-    <a href="#" class="nav-logo"><span></span>Waqfa</a>
-    <div class="nav-search">
-      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <input type="text" placeholder="Search institutions, regions, programs…">
-    </div>
-    <ul class="nav-links">
-      <li><a href="#how">How it works</a></li>
-      <li><a href="#institutions">Institutions</a></li>
-      <li><a href="#donors">Donors</a></li>
-      <li><a href="#" class="nav-cta-btn">Get early access</a></li>
-    </ul>
-  </div>
-</nav>
-
-<section class="hero">
-  <div class="hero-inner">
-    <div>
-      <div class="hero-eyebrow">Islamic Social Finance Infrastructure</div>
-      <h1>Find and verify trusted<br><em>Waqf, Zakat &amp; NGOs</em></h1>
-      <p class="hero-sub">The first dedicated reporting and verification platform for Islamic Social Finance — connecting verified institutions with donors worldwide.</p>
-
-      <div class="hero-search-bar">
-        <input type="text" placeholder="Search by name, country, or program…">
-        <select><option>All types</option></select>
-        <button>Search</button>
-      </div>
-    </div>
-    <div class="hero-platform">
-      <div class="platform-card featured">
-        <div class="pc-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div>
-        <div>
-          <h3>Transparency Seal</h3>
-          <p>Earn verification status based on your disclosure depth.</p>
-        </div>
-      </div>
-      <div class="platform-card">
-        <h3>For Institutions</h3>
-        <p>Register free and build your verified profile.</p>
-      </div>
-      <div class="platform-card">
-        <h3>For Donors</h3>
-        <p>Discover and verify institutions globally.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="stats-bar">
-  <div class="stats-bar-inner">
-    <div class="stat-item"><div class="num">$1T+</div><div class="lbl">Total Assets</div></div>
-    <div class="stat-item"><div class="num">60K+</div><div class="lbl">Institutions</div></div>
-    <div class="stat-item"><div class="num">$200B</div><div class="lbl">Zakat Potential</div></div>
-  </div>
-</div>
-
-<section class="section" id="how">
-  <div class="section-inner">
-    <span class="section-label">How it works</span>
-    <h2 class="section-title">Free to register. <em>Paid to stand out.</em></h2>
-    <div class="how-grid">
-      <div class="how-step">
+.inst-seal { font-size: var(--text-xs); font-weight: 600; padding: 2px 8px; border-radius: 20px; margin-left: auto; white-space: nowrap; }
+.seal-p { background: var(--teal-light); color: var(--teal); }
+.seal-g { background: #F
